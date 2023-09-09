@@ -1,17 +1,25 @@
-#Name of the GitHub Action
+# Name of the GitHub Action
 name: "Newman Tests"
 
-#Set the action on which the workflow will trigger
+# Set the action on which the workflow will trigger
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: 
-      image: postman/newman
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16 # Specify the version of Node.js you need
+
+      - name: Install Newman
+        run: npm install -g newman
+
       - name: Run API Tests
-        run: newman run GOREST-API-TESTING.postman_collection.json -e Test-Environment.postman_environment.json
+        run: |
+          newman run GOREST-API-TESTING.postman_collection.json -e Test-Environment.postman_environment.json
