@@ -8,7 +8,7 @@ Information about the project:
 On the site I have seen that the dev team is still active, responding to questions made in the Help foro section.
 The documentation that we have available is the one presented in the homepage of the gorest site.
 
-### Table of contents
+### Table of content
 ------
 
 - [Testing Strategy](#testing-strategy)
@@ -16,9 +16,10 @@ The documentation that we have available is the one presented in the homepage of
    - [Objectives](#objectives)
    - [Test Approach](#test-approach)
    - [Test Environment](#test-environment)
-   - [Test-Scenarios](#test-scenarios)
+   - [Test Scenarios](#test-scenarios)
    - [Test Execution](#test-execution)
-   - [Defect-Management](#defect-management)
+   - [Defect Management](#defect-management)
+   - [Reporting#](#reporting)
   
 
 ### TESTING STRATEGY
@@ -32,13 +33,14 @@ Go REST API Testing
 - Learn about how the API works. 
 - Apply some learned knowledge.
 - Practice and determine the test types to perform.
-- Create the API documentation.
+- Complete some specifications related to the API documentation.
+- Report some issues as samples.
 
 ### Test Approach
 
-- Over the API testing strategy, integration and some performance testing will be performed.
+- Over the API testing strategy, integration and some performance testing will be made.
 - The parameters will be tested in order to determine among others things the type of data allowed and the required fields.
-- Responses and messages given to the requests.
+- Response messages check.
 - Interoperability, check the integration among the different components.
 - Error handling.
 - Data.
@@ -47,7 +49,7 @@ Go REST API Testing
 
 - Application Environment: QA Environment https://gorest.co.in/
 - Tools: Postman and Newman.
-- Test Data: Sample data sets for various scenarios (csv file).
+- Test Data: Sample data sets for various scenarios (csv file in DDT folder).
 
 ### Test Scenarios
 
@@ -102,4 +104,4 @@ These are some examples of the test scenarios that can be performed for this API
 - Document defects with detailed steps to reproduce.
     
 ### Reporting
-- Generate comprehensive test reports after each test.
+- Generate comprehensive test reports after each test (html-extra newman reporter).
