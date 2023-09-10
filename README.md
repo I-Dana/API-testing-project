@@ -1,10 +1,9 @@
 ### API TESTING PROJECT
 ### Introduction
 
-This is a API Testing project with an exploratory and educational purposes based on some of the endpoints stored in https://gorest.co.in/
-Since we do no have a detailed documentation about some matters related to the behaviour of this API, this will be covered also in the content of this repository through exploration and experimentation in order to discover unknown information.
+Welcome! This project is designed for exploration and education, focusing on endpoints provided by https://gorest.co.in/.
+Since I don't have access to detailed documentation about certain aspects of this API's behavior, I'll be exploring and experimenting within this repository. This approach will allow me to uncover unknown information through hands-on exploration.
 
-Information about the project: 
 On the site I have seen that the dev team is still active, responding to questions made in the Help foro section.
 The documentation that we have available is the one presented in the homepage of the gorest site.
 
@@ -19,7 +18,7 @@ The documentation that we have available is the one presented in the homepage of
    - [Test Scenarios](#test-scenarios)
    - [Test Execution](#test-execution)
    - [Defect Management](#defect-management)
-   - [Reporting#](#reporting)
+   - [Reporting](#reporting)
   
 
 ### TESTING STRATEGY
@@ -31,19 +30,19 @@ Go REST API Testing
 ### Objectives:
 
 - Learn about how the API works. 
-- Apply some learned knowledge.
-- Practice and determine the test types to perform.
-- Complete some specifications related to the API documentation.
-- Report some issues as samples.
-
+- Apply some learned knowledge during testing.
+- Identify and practice various test types.
+- Complete specifications related to the API documentation.
+- Provide sample issue reports.
+  
 ### Test Approach
 
-- Over the API testing strategy, integration and some performance testing will be made.
-- The parameters will be tested in order to determine among others things the type of data allowed and the required fields.
-- Response messages check.
-- Interoperability, check the integration among the different components.
-- Error handling.
-- Data.
+- Employ an API testing strategy that includes integration and some performance testing.
+- Examine parameters to assess data types, allowed values, and required fields.
+- Verify response messages for correctness.
+- Evaluate the integration among different components.
+- Assess how the API handles errors.
+- Test the data integrity and accuracy.
 
 ### Test Environment
 
