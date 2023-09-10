@@ -57,42 +57,43 @@ These are some examples of the test scenarios that can be performed for this API
 
 - Create a New User: 
 
-    Send a POST request to create a new user.
-    Verify that the user is created successfully and the response status code is 201 (Created).
+    1. Send a POST request to create a new user.
+    2. Verify that the user is created successfully and the response status code is 201 (Created).
 
 - Get User Details:
 
-    Send a GET request to retrieve user details for a specific user (e.g., user with ID 2963788).
-    Verify that the user details are retrieved correctly, and the response status code is 200 (OK).
+    1. Send a GET request to retrieve user details for a specific user (e.g., user with ID 2963788).
+    2. Verify that the user details are retrieved correctly, and the response status code is 200 (OK).
 
 - Delete User:
 
-    Send a DELETE request to delete a specific user (e.g., user with ID 2968563).
-    Verify that the user is deleted successfully, and the response status code is 204 (No Content).
+    1. Send a DELETE request to delete a specific user (e.g., user with ID 2968563).
+    2. Verify that the user is deleted successfully, and the response status code is 204 (No Content).
 
 - Retrieve Posts:
   
-     Send a GET request to retrieve a list of posts.
-     Verify that the posts are retrieved correctly, and the response status code is 200 (OK).
+    1. Send a GET request to retrieve a list of posts.
+    2. Verify that the posts are retrieved correctly, and the response status code is 200 (OK).
 
 - Retrieve Post Comments:
-     Send a GET request to retrieve comments associated with a specific post (e.g., post with ID 2963).
-     Verify that the post's comments are retrieved correctly, and the response status code is 200 (OK).
+  
+    1. Send a GET request to retrieve comments associated with a specific post (e.g., post with ID 2963).
+    2. Verify that the post's comments are retrieved correctly, and the response status code is 200 (OK).
 
 - Get User Details for Non-Existent User:
 
-     Send a GET request to retrieve user details for a user ID that does not exist.
-     Verify that the API returns a response with a 404 status code.
+    1. Send a GET request to retrieve user details for a user ID that does not exist.
+    2. Verify that the API returns a response with a 404 status code.
 
 - Update User Details with Invalid Data:
 
-     Send a PUT or PATCH request to update user details with invalid data (e.g., invalid email format).
-     Verify that the API returns an appropriate error response (e.g., 422 Unprocessable Entity).
+    1. Send a PUT or PATCH request to update user details with invalid data (e.g., invalid email format).
+    2. Verify that the API returns an appropriate error response (e.g., 422 Unprocessable Entity).
 
 - Retrieve Non-Existent Post:
 
-     Send a GET request to retrieve a post that does not exist (e.g., post with ID 999999).
-     Verify that the API returns a response with a 404 status code.
+    1. Send a GET request to retrieve a post that does not exist (e.g., post with ID 999999).
+    2. Verify that the API returns a response with a 404 status code.
 
 ### Test Execution 
 
