@@ -1,19 +1,20 @@
 ### API TESTING PROJECT
 ### Introduction
 
-Welcome! This project is designed for exploration and education, focusing on endpoints provided by https://gorest.co.in/.
-Since I don't have access to detailed documentation about certain aspects of this API's behavior, I'll be exploring and experimenting within this repository. This approach will allow me to uncover unknown information through hands-on exploration.
+Welcome! This project is designed for exploration and educational purposes, focusing on endpoints provided by https://gorest.co.in/.
+Since I don't have access to detailed documentation about certain aspects of this API's behavior, I'll be experimenting within this repository. This approach will allow me to uncover unknown information through hands-on exploration.
 
 On the site I have seen that the dev team is still active, responding to questions made in the Help foro section.
 The documentation that we have available is the one presented in the homepage of the gorest site.
 
+You can get your own access token by login here https://gorest.co.in/consumer/login
+
 ### Table of content
 ------
-
-- [Testing Strategy](#testing-strategy)
+- [Testing Strategy Overview](#testing-strategy-overview)
    - [Name of the project](#name-of-the-project)
    - [Objectives](#objectives)
-   - [Test Approach](#test-approach)
+   - [Scope](#scope)
    - [Test Environment](#test-environment)
    - [Test Scenarios](#test-scenarios)
    - [Test Execution](#test-execution)
@@ -21,7 +22,7 @@ The documentation that we have available is the one presented in the homepage of
    - [Reporting](#reporting)
   
 
-### TESTING STRATEGY
+### TESTING STRATEGY OVERVIEW
 
 ### Name of the project:
 
@@ -30,19 +31,75 @@ Go REST API Testing
 ### Objectives:
 
 - Learn about how the API works. 
-- Apply some learned knowledge during testing.
 - Identify and practice various test types.
 - Complete specifications related to the API documentation.
-- Provide sample issue reports.
-  
-### Test Approach
-
-- Employ an API testing strategy that includes integration and some performance testing.
 - Examine parameters to assess data types, allowed values, and required fields.
 - Verify response messages for correctness.
 - Evaluate the integration among different components.
 - Assess how the API handles errors.
-- Test the data integrity and accuracy.
+- Provide sample issue reports.
+- Check requests response time.
+
+### Scope
+
+- The API endpoints needed to address the objectives:
+ <br>
+
+| USER  | Description |                              
+| --- | --- |
+|GET /public/v2/users/  |                 Retrieves the list of all the users |
+|GET, DELETE, PUT /public/v2/users/{id} |  Retrieves user details, Deletes user and Edits user details |
+|POST /public/v2/users/     |             Creates a new user|
+
+This part also includes the searching of the user by email, gender, status and name.
+<br>
+<br>
+
+| POST | Description | 
+| --- | --- |
+|GET /public/v2/posts/             |     Retrieves the list of all the posts |
+|GET /public/v2/posts/{post_id}    |      Retrieves the post by its id|
+|POST /public/v2/users/{id}/posts/ |       Creates a new post for the user|
+|DELETE /public/v2/posts/{id}  |          Deletes a post |
+|PATCH  /public/v2/posts/{id} |            Modifies post detail/s |
+<br>
+
+|COMMENT| Description |
+| --- | --- |
+|GET /public/v2/comments/ |               Retrieves the list of all the comments |
+|GET /public/v2/comments/{id} |            Retrieves comment by its id |
+|POST /public/v2/posts/{id}/comments/ |    Creates a new comment for a specific post |
+|DELETE /public/v2/comments/{id}       |  Deletes a comment by its id |
+<br>
+
+|TO-DO| Description |
+| --- | --- |
+|GET /public/v2/todos/  |                 Retrieves the list of all the to dos|
+|GET /public/v2/todos/{id}|               Retrieves a to-do resource by its id |
+|POST /public/v2/users/{id}/todos|        Creates a to-do for a user|
+|DELETE /public/v2/todos/{id}     |       Deletes a to-do by its id |
+<br>
+
+- Functional Testing, to ensure that the API behaves correctly according to its specification, business logic or general expectations.
+<br>
+
+- Peformance Testing, aspects related to response times.
+<br>
+
+- Dependencies: The system restores all the data every 24hs.
+ <br>
+
+- OUT-OF-SCOPE: Database testing, UI/UX testing, Security Testing, OPTIONS and HEAD HTTP methods.
+ 
+
+### Test Level 
+
+- Integration testing, to ensure integrated components work together correctly and data flows between them as expected.
+
+### Test types
+
+- Functional Testing, Test Automation, API Testing, Exploratory Testing.
+
 
 ### Test Environment
 
