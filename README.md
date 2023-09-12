@@ -16,6 +16,8 @@ You can get your own access token by login here https://gorest.co.in/consumer/lo
    - [Objectives](#objectives)
    - [Scope](#scope)
    - [Test Environment](#test-environment)
+   - [Tools](#tools)
+   - [Test Data](#test-data)
    - [Test Scenarios](#test-scenarios)
    - [Test Execution](#test-execution)
    - [Defect Management](#defect-management)
@@ -24,12 +26,12 @@ You can get your own access token by login here https://gorest.co.in/consumer/lo
 
 ### TESTING STRATEGY OVERVIEW
 
-### Name of the project:
+### Name of the project
 
 Go REST API Testing
+<br>
 
-### Objectives:
-
+### Objectives
 - Learn about how the API works. 
 - Identify and practice various test types.
 - Complete specifications related to the API documentation.
@@ -41,7 +43,6 @@ Go REST API Testing
 - Check requests response time.
 
 ### Scope
-
 - The API endpoints needed to address the objectives:
  <br>
 
@@ -81,16 +82,13 @@ This part also includes the searching of the user by email, gender, status and n
 <br>
 
 - Functional Testing, to ensure that the API behaves correctly according to its specification, business logic or general expectations.
-<br>
 
 - Peformance Testing, aspects related to response times.
-<br>
 
 - Dependencies: The system restores all the data every 24hs.
- <br>
 
 - OUT-OF-SCOPE: Database testing, UI/UX testing, Security Testing, OPTIONS and HEAD HTTP methods.
- 
+ <br>
 
 ### Test Level 
 
@@ -100,12 +98,16 @@ This part also includes the searching of the user by email, gender, status and n
 
 - Functional Testing, Test Automation, API Testing, Exploratory Testing.
 
-
 ### Test Environment
-
 - Application Environment: QA Environment https://gorest.co.in/
-- Tools: Postman and Newman.
-- Test Data: Sample data sets for various scenarios (csv file in DDT folder).
+
+### Tools 
+- Postman and Newman.
+
+  
+### Test Data
+- Sample data sets for various scenarios (csv file in DDT folder).
+<br>
 
 ### Test Scenarios
 
@@ -150,6 +152,7 @@ These are some examples of the test scenarios that can be performed for this API
 
     1. Send a GET request to retrieve a post that does not exist (e.g., post with ID 999999).
     2. Verify that the API returns a response with a 404 status code.
+<br>
 
 ### Test Execution 
 
