@@ -51,7 +51,7 @@
 									"    });\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Response time is within acceptable range\", function () {\r",
+									"pm.test(\"Response time is within acceptable range, 300ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"\r",
 									"});\r",
@@ -266,7 +266,7 @@
 									"\r",
 									"pm.test(\"Each element in the response array has a valid name field\", function () {\r",
 									"    pm.response.json().forEach(function (user) {\r",
-									"        pm.expect(user.name).to.match(/^[a-zA-Z]+$/);\r",
+									"        pm.expect(user.name).to.match(/^[a-zA-Z\\s]+$/);\r",
 									"    });\r",
 									"});"
 								],
@@ -360,6 +360,10 @@
 									"    });\r",
 									"});\r",
 									"\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"});\r",
+									"\r",
 									"var jsonData = pm.response.json();\r",
 									"var postIds = jsonData.map(post => post.id);\r",
 									"pm.environment.set(\"postIds\", JSON.stringify(postIds));\r",
@@ -425,7 +429,7 @@
 									"    });\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
@@ -491,6 +495,10 @@
 									"    responseData.forEach(function (item) {\r",
 									"        pm.expect(item.status).to.be.oneOf(['pending', 'completed']);\r",
 									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 300ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
 									"});\r",
 									"\r",
 									"var jsonData = pm.response.json();\r",
@@ -1070,14 +1078,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/users/{{userIds}}/posts",
+							"raw": "{{base_url}}/users/{{userIds}}/posts/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
 								"{{userIds}}",
-								"posts"
+								"posts",
+								""
 							]
 						}
 					},
