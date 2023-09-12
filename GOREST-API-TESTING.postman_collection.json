@@ -563,6 +563,16 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var userIds = JSON.parse(pm.environment.get(\"userIds\"));\r",
+									"pm.request.url.path[1] = userIds[pm.info.iteration];"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -576,13 +586,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/users/5131601",
+							"raw": "{{base_url}}/users/{{userIds}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"5131601"
+								"{{userIds}}"
 							]
 						}
 					},
@@ -657,19 +667,30 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"var postIds = JSON.parse(pm.environment.get(\"postIds\"));\r",
+									"pm.request.url.path[1] = postIds[pm.info.iteration];"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/posts/66741",
+							"raw": "{{base_url}}/posts/{{postIds}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"posts",
-								"66741"
+								"{{postIds}}"
 							]
 						}
 					},
@@ -709,19 +730,29 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var commentIds = JSON.parse(pm.environment.get(\"commentIds\"));\r",
+									"pm.request.url.path[1] = commentIds[pm.info.iteration];"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/comments/55165",
+							"raw": "{{base_url}}/comments/{{commentIds}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"comments",
-								"55165"
+								"{{commentIds}}"
 							]
 						}
 					},
@@ -740,19 +771,29 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var todoIds = JSON.parse(pm.environment.get(\"todoIds\"));\r",
+									"pm.request.url.path[1] = todoIds[pm.info.iteration];"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/todos/26365",
+							"raw": "{{base_url}}/todos/{{commentIds}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"todos",
-								"26365"
+								"{{commentIds}}"
 							]
 						}
 					},
@@ -787,13 +828,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/todos/55165",
+							"raw": "{{base_url}}/todos/551",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"todos",
-								"55165"
+								"551"
 							]
 						}
 					},
@@ -901,6 +942,80 @@
 							}
 						},
 						"url": {
+							"raw": "{{base_url}}/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create  New User - Wrong body format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 400 Bad Request\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\":{{$randomFullName}},\r\n        \"email\": \"{{$randomEmail}}\",\r\n        \"gender\": \"female\",\r\n        \"status\": \"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
 							"raw": "{{base_url}}/users",
 							"host": [
 								"{{base_url}}"
@@ -930,6 +1045,16 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var userIds = JSON.parse(pm.environment.get(\"userIds\"));\r",
+									"pm.request.url.path[1] = userIds[pm.info.iteration];"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -945,13 +1070,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/users/5114907/posts",
+							"raw": "{{base_url}}/users/{{userIds}}/posts",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"5114907",
+								"{{userIds}}",
 								"posts"
 							]
 						}
@@ -971,6 +1096,17 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"var postIds = JSON.parse(pm.environment.get(\"postIds\"));\r",
+									"pm.request.url.path[1] = postIds[pm.info.iteration];"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -986,13 +1122,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/posts/66972/comments/",
+							"raw": "{{base_url}}/posts/{{postIds}}/comments/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"posts",
-								"66972",
+								"{{postIds}}",
 								"comments",
 								""
 							]
@@ -1023,6 +1159,16 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var userIds = JSON.parse(pm.environment.get(\"userIds\"));\r",
+									"pm.request.url.path[1] = userIds[pm.info.iteration];"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -1038,13 +1184,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/users/5114907/todos",
+							"raw": "{{base_url}}/users/{{userIds}}/todos",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"5114907",
+								"{{userIds}}",
 								"todos"
 							]
 						}
