@@ -1,0 +1,35 @@
+name: Data-Driven Testing 
+
+on:
+  push:
+   
+
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - name: Install Newman and Reporter
+        run: |
+          npm install -g newman newman-reporter-htmlextra
+
+      - name: Make Directory for Results
+        run: mkdir -p testResults
+
+      - name: Run API Tests
+        run: newman run DDT/Data-Driven-Testing.postman_collection.json -e DDT/QA_Environment.postman_environment.json -d DDT/POST.csv --env-var "name={{name}}" --env-var "email={{email}}" --env-var "gender={{gender}}" --env-var "status={{status}}" -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
+        continue-on-error: true # Continue to the next step even if Newman fails
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: DDTTestResults
+          path: testResults
