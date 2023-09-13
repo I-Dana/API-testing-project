@@ -7,15 +7,23 @@
 	},
 	"item": [
 		{
-			"name": "Create New User",
+			"name": "Create Users",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"pm.test(\"Status code is 201\", function () {\r",
 							"    pm.response.to.have.status(201, \"Resource created\");\r",
-							"});"
+							"});\r",
+							"\r",
+							"pm.test(\"Name only contains letters and spaces\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    if (typeof jsonData.name === 'string' && /^[a-zA-Z\\s]+$/.test(jsonData.name)) {\r",
+							"        pm.expect(pm.response.code).to.equal(201);\r",
+							"    }\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -38,7 +46,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \r\n    \"name\": \"{{name}}\", \r\n    \"email\": \"{{email}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+					"raw": "{       \r\n    \"name\": \"{{name}}\", \r\n    \"email\": \"{{email}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -46,12 +54,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/users",
+					"raw": "{{base_url}}/users/",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"users"
+						"users",
+						""
 					]
 				}
 			},
